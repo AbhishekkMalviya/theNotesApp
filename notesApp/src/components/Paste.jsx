@@ -31,6 +31,13 @@ const Paste = () => {
         }
     }, []);
 
+    const trimAndSliceString = (str) => {
+        // Trim multiple spaces
+        const trimmedStr = str.replace(/\s\s+/g, ' ');
+        // Slice to first 50 characters
+        return trimmedStr.slice(0, 50);
+    };
+
     return (
         <div className="p-4 max-w-7xl mx-auto">
             <div className="flex justify-center mb-6">
@@ -46,7 +53,7 @@ const Paste = () => {
             <div className="space-y-4">
                 {filteredData.length > 0 ? (
                     filteredData.map((paste) => (
-                        <div 
+                        <div
                             key={paste._id}
                             className="border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
                         >
@@ -59,12 +66,13 @@ const Paste = () => {
                                 </span>
                             </div>
 
-                            <div className="mb-4 whitespace-pre-wrap bg-gray-50 p-3 rounded">
-                                {paste.content}
+                            <div className="mb-4 whitespace-pre-wrap bg-grey-600  p-3 rounded">
+                                {trimAndSliceString(paste.content)}
+                                {/* {paste.content.substring(0,30)} */}
                             </div>
 
                             <div className="flex flex-wrap gap-2">
-                                <Link 
+                                <Link
                                     to={`/?pasteId=${paste._id}`}
                                     className="btn-primary"
                                 >
@@ -73,7 +81,7 @@ const Paste = () => {
                                     </button>
                                 </Link>
 
-                                <Link 
+                                <Link
                                     to={`/?pastes=${paste._id}`}
                                     className="btn-secondary"
                                 >
@@ -96,8 +104,8 @@ const Paste = () => {
                                     Copy
                                 </button>
 
-                                <button 
-                                    className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
+                                <button
+                                    className="px-4 py-2 bg-gray-500 border text-white rounded hover:bg-gray-600 transition-colors"
                                     onClick={() => {
                                         // Implement share functionality
                                         toast.info("Share functionality coming soon!");
