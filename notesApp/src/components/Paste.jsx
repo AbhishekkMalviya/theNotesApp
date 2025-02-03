@@ -24,10 +24,14 @@ const Paste = () => {
                 throw new Error('Content must be a string');
             }
             await navigator.clipboard.writeText(String(content));
-            toast.success("Copied to clipboard");
+            toast.success("Copied to clipboard",{
+                position:'top-right'
+            });
         } catch (err) {
             console.error('Copy failed:', err);
-            toast.error("Failed to copy to clipboard");
+            toast.error("Failed to copy to clipboard",{
+                position:'top-right'
+            });
         }
     }, []);
 
