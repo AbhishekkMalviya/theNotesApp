@@ -107,8 +107,8 @@ const Paste = () => {
                                 >
                                     Copy
                                 </button>
-
-                                <button
+ {/* Share Functionality is not implemented yet */}
+                                {/* <button
                                     className="px-4 py-2 bg-gray-500 border text-white rounded hover:bg-gray-600 transition-colors"
                                     onClick={() => {
                                         // Implement share functionality
@@ -116,7 +116,7 @@ const Paste = () => {
                                     }}
                                 >
                                     Share
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     ))
